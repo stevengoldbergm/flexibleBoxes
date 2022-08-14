@@ -1,76 +1,208 @@
+:root{
+    --bg-base: rgb(97, 74, 109);
+    --fg-base: rgb(218, 172, 86);
+}
+/* Setting up the page base */
 * {
-    /* border: 1px solid black; */
-    margin: 0;
-    border: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(218, 172, 86);
 }
 
 body {
+    margin: 0;
+    background-color: rgb(76, 76, 76);
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+/* Creating the custom classes for the flex containers */
+/* This step was unnecessary, but helped with learning */
+.flex-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    flex: 1 0 auto;
+    color: var(--bg-base);
+}
+
+/* Title Header and Nav values */
+header.flex-container {
+    height: 30px;
+    padding: 0 20px;
+    background-color: var(--bg-base);
+}
+
+h1.flexitem {
+    flex: 2;
+    font-size: 20px;
+}
+
+nav.flex-container.flex-item {
+    flex: .5;
+    flex-wrap: wrap;
+    min-width: fit-content;
+}
+
+.flex-container ul {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.flex-item li {
+    text-align: end;
+    padding: 0px 5px;
+}
+
+/* Setting up the top of the page */
+article {
     position: relative;
-    top: 0px;
-    left: 0;
-    background-color: red;
+    height: fit-content;
+    text-align: center;
+    margin-top: 10px;
 }
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    background-color: orange;
-    z-index: 1;
+article h1 {
+    font-size: x-large;
 }
 
-.headerSpace {
-    position: static;
-    top: 0;
-    left: 0;
-    height: 50px;
-    background-color: aqua;
+/* Setting up and Defining the Cards */
+section {
+    margin-top: 25px;
 }
 
-main {
-    position: relative;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    background-color: yellow;
-    z-index: 1;
+.card {
+    display: flex;
+    flex-direction: column;  
+    align-items: stretch;
+    height: 300px;
+    width: 30%;
+    /* min-width: 200px;
+    max-width: 450px; */
+    margin-bottom: 30px;
+    border: 3px dashed var(--fg-base);
+    border-radius: 25px 25px 25px 25px;
+}
+
+.flex-item.card p {
+    margin: 0;
+    padding: 0 5px;
+}
+
+.code {
+    background-image: linear-gradient(
+        var(--bg-base), rgb(50, 30, 65)
+        );
+    box-shadow: 0px 0px 0px 1px var(--fg-base);
+    height: 600px;
+    width: auto;
+    margin: 5%;
+    text-align: left;
+    border-radius: 25px 25px 25px 25px;
+}
+
+section.flex-container {
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 article {
-    position: absolute;
-    bottom: 0;
-    margin: 5px;
-    width: 98%;
-    height: 25px;
-    background-color: green;
-    color: aliceblue;
-    text-align: left;
-    z-index: 1;
-
+    position: relative;
+    height: 50px;
+    text-align: center;
 }
 
-section {
-    position: absolute;
-    width: 20%;
-    top: 0;
-    left: 0;
-    height: 50%;
-    background-color: purple;
-    z-index: 0;
+article.flex-item {
+    flex: 0 1 auto;
 }
 
-section article {
-    background-color: violet;
+article header {
+    position: relative;
+    top: -20px;
+    height: 50px;
+    /* border: .5px solid black; */
+}
+
+article h1 {
+    position: relative;
+    top: 33.3%
+}
+
+
+
+.flex-item.card header {
+    display: flex;
+    justify-content: center;
+    border-radius: 10px 10px 10px 10px;
+    align-items: center;
+    align-self: center;
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+    background-color: var(--bg-base);
+    border: 2px dotted var(--fg-base);
+}
+
+.flex-item.card header h2 {
+    font-size: larger;
+}
+
+header p {
+    border: none;
 }
 
 footer {
-    position: absolute;
-    bottom: 0px;
+    height: 25px;
     width: 100%;
-    height: 50px;
-    background-color: blue;
-    color: white;
+    background-color: var(--bg-base)
 }
+
+footer h3 {
+    position: relative;
+    top: 20%;
+    text-align: center;
+    
+}
+
+@media screen and (max-width:992px) {
+    .card {
+        width: 45%
+    }
+}
+
+@media screen and (max-width:768px) {
+    .card {
+        width: 70%
+    }
+
+    header.flex-container {
+        justify-content: center;
+        align-items: center;
+    }
+
+    header h1.flex-container.flex-item {
+        display: block;
+        text-align: center;
+        padding: 5px;
+    }
+}
+
+/* .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 50px;
+}
+
+.grid-item {
+    grid: auto;
+} */
