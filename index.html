@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Cards!</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <!-- Add in curves corners on the top of the page -->
+    <div class="circle-left"></div>
+    <div class="circle-right"></div>
+
+    <!-- Create the header links -->
+    <header class="flex-container">
+        
+        <h1 class="flex-container flex-item"></h1>
+        <nav class="flex-container flex-item">
+            <ul class="flex-container flex-item">
+                <li class="flex-item">
+                    <a href="https://github.com/stevengoldbergm">My Portfolio</a>
+                </li>
+                <li class="flex-item">
+                    <a href="https://github.com/stevengoldbergm">My Github</a>
+                </li>
+                <li class="flex-item">
+                    <a href="https://github.com/stevengoldbergm">Contact Me!</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Add title and description to the page -->
+    <article>
+        <h1>
+            CSS Snippits!
+        </h1>
+    </article>
+    <article>
+        <p>
+            Here's a quick reference sheet for several advanced CSS concepts.
+        </p>
+        <p>
+            Try adjusting the window size to see what it does to the cards!
+        </p>
+    </article>
+
+    <!-- Build cards -->
+    <main>
+        <section class="flex-container">
+            <article class="flex-item card">
+                <header>
+                    <h2>Flexbox Row</h2>
+                </header>
+                <p>
+                    These three properties create 
+                </p>
+                <p>
+                    a Flexbox row layout!
+                </p>
+               
+               <!-- NOTE: Code boxes use 'pre' and must be formatted to the left of our HTML code -->
+                <div class="code">
+<pre>
+    .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap:wrap;
+    }
+</pre>
+                </div>
+            </article>
+
+            <article class="flex-item card">
+                <header>
+                    <h2>Flexbox Column</h2>
+                </header>
+                <p>
+                    These three properties create 
+                </p>
+                <p>
+                    a Flexbox column layout!
+                </p>
+                <div class="code">
+<pre>
+    .row {
+        display: flex;
+        flex-direction: column;
+        flex-wrap:wrap;
+    }
+</pre>
+                </div>
+            </article>
+            
+            <article class="flex-item card">
+                <header>
+                    <h2>CSS Grid Layout</h2>
+                </header>
+                <p>
+                    Build a 12-column layout using CSS Grid!
+                </p>
+
+                <div class="code">
+<pre>
+    .grid {
+        display:grid;
+        width: 100%;
+        grid-template-columns: repeat (12, 1fr);
+    }
+</pre>
+                </div>
+            </article>
+
+            <article class="flex-item card">
+                <header>
+                    <h2>Linear Gradients</h2>
+                </header>
+                <p>
+                    This will create a linear gradient from top to bottom!
+                </p>
+                <div class="code">
+<pre>
+    .linear-gradient-background {
+        background-image: linear-gradient (
+            rgb(97, 74, 109) 0%,
+            rgb(50, 30, 65) 100%
+        );
+    }
+</pre>
+                </div>
+            </article>
+
+            <article class="flex-item card">
+                <header>
+                    <h2>Box Transition Glow</h2>
+                </header>
+                <p>
+                    Shadows glow when you hover over 
+                </p>
+                <p>
+                    elements with your mouse!
+                </p>
+
+                <!-- NOTE: the font in this box was too big. I used the 'style' attribute to adjust the font-size-->
+                <div class="code">
+<pre style="font-size: 85%";>
+    .code-card .card-header {
+        border-radius: 8px;
+        transition: all 0.5s ease
+    }
+    .code-card:hover,
+    .code-card:hover .card-header {
+        box-shadow: inset 0px 0px 8px
+    }
+</pre>
+                </div>
+            </article>
+
+            <article class="flex-item card">
+                <header>
+                    <h2>Overlay Card with Title</h2>
+                </header>
+                <p>
+                    Positions the title above its relative starting point!
+                </p> 
+                <div class="code">
+<pre>
+    .card-header {
+        position: relative;
+        martin-top: -20px;
+    }
+</pre>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- Quick footer with room to grow -->
+    <footer>
+        <h3>&copy 2022 stevengoldbergm</h3>
+    </footer>
+
+</body>
+</html>

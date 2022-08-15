@@ -1,0 +1,290 @@
+:root{
+    --bg-base: rgb(97, 74, 109);
+    --fg-base: rgb(218, 172, 86);
+}
+/* Setting up the page base */
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(218, 172, 86);
+}
+
+body {
+    margin: 0;
+    background-color: rgb(76, 76, 76);
+}
+
+a {
+    text-decoration: none;
+}
+
+a:active {
+    font-size: 85%;
+border-bottom: 1px dotted var(--fg-base);
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+/* Creating the custom classes for the flex containers */
+/* This step was unnecessary, but helped with learning */
+.flex-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    flex: 1 0 auto;
+    color: var(--bg-base);
+}
+
+/* Round banner decorations */
+.circle-left {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    clip-path: circle(100% at 0% 0%);
+    margin-top: -75px;
+    float: left;
+    background-color: var(--bg-base) ;
+    z-index: -1;
+}
+
+.circle-right {
+    position: absolute;
+    right: 0;
+    height: 200px;
+    width: 200px;
+    clip-path: circle(100% at 100% 0);
+    margin-top: -75px;
+    float: right;
+    background-color: var(--bg-base) ;
+    z-index: -1;
+}
+
+/* Title Header and Nav values */
+header.flex-container {
+
+    height: 30px;
+    width: 100%;
+    padding: 0 20px;
+    background-color: var(--bg-base);
+
+}
+
+h1.flexitem {
+    flex: 2;
+    font-size: 20px;
+}
+
+nav.flex-container.flex-item {
+    flex: .5;
+    flex-wrap: wrap;
+    min-width: fit-content;
+}
+
+.flex-container ul {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.flex-item li {
+    text-align: end;
+    padding: 0px 5px;
+}
+
+/* Setting up the top of the body */
+article {
+    position: relative;
+    height: 50px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+article h1 {
+    font-size: x-large;
+    position: relative;
+    top: 33.3%
+}
+
+/* Setting up and Defining the Cards */
+section {
+    margin-top: 25px;
+}
+
+section.flex-container {
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;  
+    align-items: stretch;
+    height: 300px;
+    width: 30%;
+    margin-bottom: 30px;
+    border: 3px dashed var(--fg-base);
+    border-radius: 25px 25px 25px 25px;
+    transition: all 1s;
+}
+
+.flex-item.card p {
+    margin: 0;
+    padding: 0 5px;
+}
+
+.code {
+    background-image: linear-gradient(
+        var(--bg-base), rgb(50, 30, 65)
+        );
+    box-shadow: 0px 0px 0px 1px var(--fg-base);
+    height: 600px;
+    width: auto;
+    margin: 5%;
+    text-align: left;
+    border-radius: 25px 25px 25px 25px;
+    display: flex;
+    align-items: center;
+    transition: all 1s;
+}
+
+/* Dynamic animation options */
+/* NOTE: Margins broke down for some reason. Order of pseudo-classes was important for function. */
+pre:active {
+    user-select: all;
+}
+
+.code:hover {
+    transition: box-shadow 2s, transform 1s;
+    box-shadow: 0px 0px 10px 1px;
+    transform: scale(103%);
+}
+
+.card:hover, .card:hover header {
+    transition: all 1s ease;
+    box-shadow: 0px 0px 10px 1px var(--fg-base);
+    background-color: none;
+}
+
+article header {
+    transition: all 1s;
+}
+
+article header:hover {
+    transition: all 1s ease;
+    transform: rotate(360deg);
+    box-shadow: 0px 0px 5px 0px var(--fg-base);
+};
+
+article.flex-item.card {
+    margin:20px
+}
+
+article.flex-item {
+    flex: 0 1 auto;
+}
+
+article header {
+    position: relative;
+    top: -20px;
+    height: 50px;
+    /* border: .5px solid black; */
+}
+
+article.flex-item.card p {
+    line-height: 110%;
+}
+
+.flex-item.card header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 10px 10px;
+    align-items: center;
+    align-self: center;
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+    background-color: var(--bg-base);
+    border: 2px dotted var(--fg-base);
+}
+
+.flex-item.card header h2 {
+    font-size: larger;
+}
+
+pre {
+    color: rgb(199, 199, 199);
+    font-size: medium;
+    text-align: left;
+    line-height: 1.6;
+    align-self: center;
+}
+
+/* Setting up the footer */
+footer {
+    height: 25px;
+    width: 100%;
+    background-color: var(--bg-base)
+}
+
+footer h3 {
+    position: relative;
+    top: 32.3%;
+    text-align: center;
+    font-size: small;
+    
+}
+
+/* Dynamic media options */
+@media screen and (max-width:992px) {
+    .card {
+        width: 45%
+    }
+    header nav ul li {
+        transition: all 1s;
+        margin: 0px 5px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .card {
+        width: 70%
+    }
+
+    header.flex-container {
+        transition: all 1s;
+        flex-direction: column;
+
+
+    }
+    header h1.flex-container.flex-item {
+        transition: all 1s;
+        text-align: center;
+        padding: 5px;
+        align-self: center;
+    }
+    header nav.flex-container.flex-item {
+        transition: all 1s;
+        position: relative;
+        top: -7px;
+    }
+    header nav ul li {
+        transition: all 1s;
+        margin: 0px 6px;
+    }
+}
+
+/* .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 50px;
+}
+
+.grid-item {
+    grid: auto;
+} */
