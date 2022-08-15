@@ -277,6 +277,9 @@ footer h3 {
         transition: all 1s;
         margin: 0px 6px;
     }
+    article p {
+        font-size: small;
+    }
 }
 
 /* .grid-container {
