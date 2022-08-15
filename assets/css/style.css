@@ -18,6 +18,11 @@ a {
     text-decoration: none;
 }
 
+a:active {
+    font-size: 85%;
+border-bottom: 1px dotted var(--fg-base);
+}
+
 p {
     margin-bottom: 5px;
 }
@@ -35,11 +40,38 @@ p {
     color: var(--bg-base);
 }
 
+/* Round banner decorations */
+.circle-left {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    clip-path: circle(100% at 0% 0%);
+    margin-top: -75px;
+    float: left;
+    background-color: var(--bg-base) ;
+    z-index: -1;
+}
+
+.circle-right {
+    position: absolute;
+    right: 0;
+    height: 200px;
+    width: 200px;
+    clip-path: circle(100% at 100% 0);
+    margin-top: -75px;
+    float: right;
+    background-color: var(--bg-base) ;
+    z-index: -1;
+}
+
 /* Title Header and Nav values */
 header.flex-container {
+
     height: 30px;
+    width: 100%;
     padding: 0 20px;
     background-color: var(--bg-base);
+
 }
 
 h1.flexitem {
@@ -64,21 +96,28 @@ nav.flex-container.flex-item {
     padding: 0px 5px;
 }
 
-/* Setting up the top of the page */
+/* Setting up the top of the body */
 article {
     position: relative;
-    height: fit-content;
+    height: 50px;
     text-align: center;
     margin-top: 10px;
 }
 
 article h1 {
     font-size: x-large;
+    position: relative;
+    top: 33.3%
 }
 
 /* Setting up and Defining the Cards */
 section {
     margin-top: 25px;
+}
+
+section.flex-container {
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .card {
@@ -87,11 +126,10 @@ section {
     align-items: stretch;
     height: 300px;
     width: 30%;
-    /* min-width: 200px;
-    max-width: 450px; */
     margin-bottom: 30px;
     border: 3px dashed var(--fg-base);
     border-radius: 25px 25px 25px 25px;
+    transition: all 1s;
 }
 
 .flex-item.card p {
@@ -109,17 +147,41 @@ section {
     margin: 5%;
     text-align: left;
     border-radius: 25px 25px 25px 25px;
-}
-
-section.flex-container {
-    justify-content: space-evenly;
+    display: flex;
     align-items: center;
+    transition: all 1s;
 }
 
-article {
-    position: relative;
-    height: 50px;
-    text-align: center;
+/* Dynamic animation options */
+/* NOTE: Margins broke down for some reason. Order of pseudo-classes was important for function. */
+pre:active {
+    user-select: all;
+}
+
+.code:hover {
+    transition: box-shadow 2s, transform 1s;
+    box-shadow: 0px 0px 10px 1px;
+    transform: scale(103%);
+}
+
+.card:hover, .card:hover header {
+    transition: all 1s ease;
+    box-shadow: 0px 0px 10px 1px var(--fg-base);
+    background-color: none;
+}
+
+article header {
+    transition: all 1s;
+}
+
+article header:hover {
+    transition: all 1s ease;
+    transform: rotate(360deg);
+    box-shadow: 0px 0px 5px 0px var(--fg-base);
+};
+
+article.flex-item.card {
+    margin:20px
 }
 
 article.flex-item {
@@ -133,16 +195,14 @@ article header {
     /* border: .5px solid black; */
 }
 
-article h1 {
-    position: relative;
-    top: 33.3%
+article.flex-item.card p {
+    line-height: 110%;
 }
-
-
 
 .flex-item.card header {
     display: flex;
     justify-content: center;
+    align-items: center;
     border-radius: 10px 10px 10px 10px;
     align-items: center;
     align-self: center;
@@ -157,10 +217,15 @@ article h1 {
     font-size: larger;
 }
 
-header p {
-    border: none;
+pre {
+    color: rgb(199, 199, 199);
+    font-size: medium;
+    text-align: left;
+    line-height: 1.6;
+    align-self: center;
 }
 
+/* Setting up the footer */
 footer {
     height: 25px;
     width: 100%;
@@ -169,14 +234,20 @@ footer {
 
 footer h3 {
     position: relative;
-    top: 20%;
+    top: 32.3%;
     text-align: center;
+    font-size: small;
     
 }
 
+/* Dynamic media options */
 @media screen and (max-width:992px) {
     .card {
         width: 45%
+    }
+    header nav ul li {
+        transition: all 1s;
+        margin: 0px 5px;
     }
 }
 
@@ -186,14 +257,25 @@ footer h3 {
     }
 
     header.flex-container {
-        justify-content: center;
-        align-items: center;
-    }
+        transition: all 1s;
+        flex-direction: column;
 
+
+    }
     header h1.flex-container.flex-item {
-        display: block;
+        transition: all 1s;
         text-align: center;
         padding: 5px;
+        align-self: center;
+    }
+    header nav.flex-container.flex-item {
+        transition: all 1s;
+        position: relative;
+        top: -7px;
+    }
+    header nav ul li {
+        transition: all 1s;
+        margin: 0px 6px;
     }
 }
 
